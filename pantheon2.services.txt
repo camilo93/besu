@@ -1,0 +1,14 @@
+[Unit]
+Description=pantheon service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+User=ubuntu
+ExecStart=/home/ubuntu/pantheon/build/distributions/pantheon-1.1.1-SNAPSHOT/bin/pantheon --data-path=/home/ubuntu/data/pantheon-1.0.2/network/node-2/data --genesis-file=/home/ubuntu/data/pantheon-1.0.2/network/ibftGenesis.json --bootnodes=enode://538f74f45bfda099909d74ff48139e1c59e27cbb50446d788fa4ab4b83e2b4c48dfe5d38cf2a81d906149f4932250999e37e7579095a0a400d49593ed28b0880@127.0.0.1:30303 --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-whitelist=* --rpc-http-cors-origins="all" --rpc-http-port=8547 --min-gas-price=0
+WorkingDirectory=/home/ubuntu/
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

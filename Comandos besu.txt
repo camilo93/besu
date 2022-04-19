@@ -1,0 +1,26 @@
+Instalación software requerido (Java11, Besu)
+Guia de instalación  -- https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/
+
+--Instalación Java 11 Redhat
+sudo yum install java-11-openjdk
+sudo update-alternatives --config 'java'
+
+--Instalación besu
+gsutil cp gs://storagealero/davipass/instaladores.zip .
+**unzip carpeta besu
+Check Besu:  
+/besu-21.10.2/bin/besu --help
+====================================================================
+Inicialización de los Nodos
+Correr desde la carpeta IBFT-NETWORK
+--Nodo1 
+sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
+
+--Nodo 2 
+sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --bootnodes= "Copy ---" --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
+
+--Nodo 3
+sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --bootnodes="Copy ---" --p2p-port=30305 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547
+
+--Nodo 4
+sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --bootnodes="Copy-----" --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548

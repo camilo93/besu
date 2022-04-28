@@ -24,3 +24,18 @@ sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesi
 
 --Nodo 4
 sudo /home/cccastil/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --bootnodes="Copy-----" --p2p-port=30306 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8548
+
+==========================================================================
+Clone Panthon Repository
+
+git clone --recursive https://github.com/PegaSysEng/pantheon.git
+
+./gradlew build -x test
+
+cd build/distributions/
+
+tar -xzf pantheon-<version>.tar.gz
+
+cd pantheon-<version>/
+
+bin/pantheon --help

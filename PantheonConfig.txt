@@ -1,3 +1,6 @@
+[Unit]
+Description=Inicializar Nodo1
+
 [Service]
 User=root
 Group=root

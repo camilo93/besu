@@ -4,7 +4,7 @@ Description=Inicializar Nodo1
 [Service]
 User=root
 Group=root
-ExecStart=/opt/besu-21.10.2/bin/besu --data-path=data --genesis-file=genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
+ExecStart=/opt/besu-21.10.2/bin/besu --data-path=/opt/IBFT-Network/Node-1/data --genesis-file=/opt/IBFT-Network/genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
 Restart=always
 
 [Install]

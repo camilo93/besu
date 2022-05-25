@@ -4,8 +4,12 @@ Description=Inicializar Nodo1
 [Service]
 User=root
 Group=root
-ExecStart=/opt/besu-21.10.2/bin/besu --data-path=/opt/IBFT-Network/Node-1/data --genesis-file=/opt/IBFT-Network/genesis.json --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all"
-Restart=always
+ExecStart=/opt/besu-21.10.2/bin/besu --data-path=/opt/IBFT-Network/Node-1/data --genesis-file=/opt/IBFT-Network/genesis.json --rpc-http-enabled --rpc-http-api=ADMIN,ETH,NET,IBFT,WEB3,DEBUG --host-allowlist=* --rpc-http-cors-origins="all" --rpc-http-port=8545 --min-gas-price=0 --rpc-ws-enabled --rpc-ws-api=ADMIN,NET,ETH,IBFT,WEB3,DEBUG --rpc-ws-port=4444
+WorkingDirectory=/opt/
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target

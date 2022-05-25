@@ -4,8 +4,12 @@ Description=Inicializar Nodo2
 [Service]
 User=root
 Group=root
-ExecStart=/opt/besu-21.10.2/bin/besu --data-path=/opt/IBFT-Network/Node-2/data --genesis-file=/opt/IBFT-Network/genesis.json --bootnodes= "enode://53dbc8a5d93cf6a59b5530e3a08fa8ca6d30c6935" --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8546
-Restart=always
+ExecStart=/opt/besu-21.10.2/bin/besu --data-path=/opt/IBFT-Network/Node-2/data --genesis-file=/opt/IBFT-Network/genesis.json --bootnodes=enode://53dbc8a5d93cf6a59b5530e3a08fa8ca6d30c6935 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT --host-allowlist=* --rpc-http-cors-origins="all" --rpc-http-port=8546 --min-gas-price=0
+WorkingDirectory=/opt/
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
